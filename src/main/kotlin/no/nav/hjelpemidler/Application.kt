@@ -73,13 +73,13 @@ fun Application.module() {
             call.respondText("READY", ContentType.Text.Plain)
         }
 
-        /*get("/metrics") {
+        /* get("/metrics") {
             val names = call.request.queryParameters.getAll("name[]")?.toSet() ?: emptySet()
 
             call.respondTextWriter(ContentType.parse(TextFormat.CONTENT_TYPE_004)) {
                 TextFormat.write004(this, CollectorRegistry.defaultRegistry.filteredMetricFamilySamples(names))
             }
-        }*/
+        } */
 
         // Authenticated database proxy requests
         authenticate("aad") {
