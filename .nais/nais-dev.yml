@@ -20,3 +20,8 @@ spec:
     outbound:
       external:
         - host: hm-oebs-api-proxy.prod-fss-pub.nais.io
+    inbound:
+      rules:
+        - application: hm-dine-hjelpemidler
+          namespace: teamdigihot
+          cluster: dev-gcp
