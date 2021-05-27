@@ -146,7 +146,7 @@ fun Application.module() {
         }
 
         // FIXME: Remove non-authenticated endpoint used for testing in dev
-        get("/test") {
+        get("/test2") {
             if (Configuration.application["APP_PROFILE"] != "dev") {
                 return@get
             }
@@ -166,8 +166,8 @@ fun Application.module() {
                             HttpHeaders.Authorization,
                             ignoreCase = true
                         ) && !key.equals("X-Correlation-ID", ignoreCase = true)
-                                && !key.equals(HttpHeaders.ContentLength, ignoreCase = true)
-                                && !key.equals(HttpHeaders.TransferEncoding, ignoreCase = true)
+                        && !key.equals(HttpHeaders.ContentLength, ignoreCase = true)
+                        && !key.equals(HttpHeaders.TransferEncoding, ignoreCase = true)
                     }
 
                     val headersBuilder = HeadersBuilder()
