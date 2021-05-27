@@ -1,0 +1,22 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: hm-oebs-api
+  namespace: teamdigihot
+  labels:
+    team: teamdigihot
+spec:
+  image: {{image}}
+  secureLogs:
+    enabled: true
+  liveness:
+    path: /isalive
+  readiness:
+    path: /isready
+  azure:
+    application:
+      enabled: true
+  accessPolicy:
+    outbound:
+      external:
+        - host: hm-oebs-api-proxy.prod-fss-pub.nais.io
